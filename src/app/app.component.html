@@ -1,22 +1,28 @@
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
 
-  <title>{{title}}</title>
-</head>
-<body>
-    <h1><span class="badge badge-dark" [style.display]="display">Application géniale</span></h1>
-<br>
-<button (click)="ExecuteWS()">Init Liste</button>
-<div>
-  <p *ngFor="let post of posts">
-    {{post.name}}
-  </p>
-
-  <app-list test="{{test}}"></app-list>
-
-</div>
-</body>
+    <title>{{title}}</title>
+  </head>
+  <body>
+      <h1><span class="badge badge-dark" [style.display]="display">Application géniale</span></h1>
+    <br>
+    <div class="container">
+      <button class="btn btn-primary init" (click)="ExecuteWS()">Init Liste</button>
+      <br>
+      <div [style.display]="dsp" class="posts">
+        <div class="margin card">
+          <ul *ngFor="let post of posts" class="list-group list-group-flush">
+            <li class="list-group-item" (click)="setId(post.id)">{{post.name}}</li>
+          </ul>
+        </div>
+        <div class="margin">
+          <app-list *ngIf="bool==1"></app-list>
+        </div>
+      </div>
+      
+    </div>
+  </body>
 </html>

@@ -1,17 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component  } from '@angular/core';
+import { FormatListService } from '../format-list.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
 
-  constructor() { }
+  constructor(private FormatListService:FormatListService) { }
+  post:any;
 
-  @Input() test:string;
-  
-  ngOnInit(): void {
+  recupPost(){
+    this.post = this.FormatListService.getPost(this.FormatListService.getPosts(),this.FormatListService.getIdPost());
+    // console.log(this.post);
   }
-
 }

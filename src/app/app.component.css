@@ -1,0 +1,17 @@
+.container{
+    width: 75%;
+    margin: auto;
+}
+
+.posts{
+    width:100%;
+}
+
+.margin{
+    margin:auto;
+}
+
+.init{
+    display: block;
+    margin: auto;
+}

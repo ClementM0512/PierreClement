@@ -1,1 +1,24 @@
-{{test}}
+{{recupPost()}}
+
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="card">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Name: {{post.name}}</li>
+                <li class="list-group-item">Company name: {{post.company.name}} </li>
+                <li class="list-group-item">Website: {{post.website}}</li>
+                <li class="list-group-item">Phone: {{post.phone}}</li>
+                <li class="list-group-item">Address mail: {{post.email}} </li>
+                <li class="list-group-item"> Address: {{post.address.street}}   <br>
+                                            {{post.address.suite}} <br>  
+                                            {{post.address.city}} <br>  
+                                            {{post.address.zipcode}}</li>
+            </ul>
+        </div>
+    </body>
+<html>

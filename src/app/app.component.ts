@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { WebServiceService } from './web-service.service';
+import { FormatListService } from './format-list.service';
+
 
 @Component({
   selector: 'app-root',
@@ -9,22 +11,26 @@ import { WebServiceService } from './web-service.service';
 export class AppComponent {
   title = 'PierreClement';
   display="block";
+  dsp="inline-flex";
+  bool=0;
 
-  test = "abcd";
+  posts:any[];
+  idPost:any;
+  @Output() res:any;
 
-  posts:any;
-
-  constructor(private webServiceService:WebServiceService){}
-
-  ngOnInit(){
-  }
+  constructor(private webServiceService:WebServiceService, private FormatListService:FormatListService){}
 
   ExecuteWS(){
     this.webServiceService.GetPosts().subscribe(data => {
-      this.posts = data;
-      this.posts.forEach(post => {
-        console.log("Titre : " + post["title"]);   
-      });         
+      this.posts = Object.values(data);
+      this.FormatListService.setPosts(this.posts);
     });
   }
+
+  setId(id){
+    this.FormatListService.setIdPost(id);
+    this.bool=1;
+  }
+
+  
 }

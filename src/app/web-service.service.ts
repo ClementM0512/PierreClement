@@ -13,5 +13,4 @@ export class WebServiceService {
   GetPosts(){
     return this.httpClient.get(this.url);           
   }
-  vadump
 }
